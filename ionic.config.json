@@ -1,0 +1,7 @@
+{
+  "name": "plank",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
