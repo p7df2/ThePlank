@@ -1,10 +1,17 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.theplank.app',
   appName: 'plank',
   webDir: 'dist',
-  bundledWebRuntime: false
+  bundledWebRuntime: false,
+  plugins: {
+    SplashScreen: {
+        launchShowDuration: 100,
+        launchAutoHide: true,
+        splashImmersive: true,
+    }
+}
 };
 
 export default config;
