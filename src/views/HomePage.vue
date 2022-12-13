@@ -16,7 +16,7 @@
         />
       </div>
     </ion-content>
-    <button id="add-button" @touchstart="onAdd">+</button>
+    <button id="add-button" @touchstart="onAdd" @click="onAdd">+</button>
     <NoteFormModal :show="showModal" @cancel="showModal = !showModal" />
   </ion-page>
 </template>
@@ -49,8 +49,15 @@ export default defineComponent({
     const store = useStore();
     store.dispatch("initNotes");
     const showModal = ref(false);
+    var flag = false;
     const onAdd = () => {
-      showModal.value = true;
+      if (!flag) {
+        flag = true;
+        setTimeout(() => {
+          flag = false;
+        }, 100);
+        showModal.value = true;
+      }
     };
 
     return {

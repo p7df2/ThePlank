@@ -3,7 +3,7 @@
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-button @touchstart="cancel()"
+          <ion-button @touchstart="cancel" @click="cancel"
             ><ion-icon
               :icon="arrowBackOutline"
               style="padding-right: 4px"
@@ -12,7 +12,7 @@
           >
         </ion-buttons>
         <ion-buttons slot="end">
-          <ion-button @touchstart="confirm()"
+          <ion-button @touchstart="confirm" @click="confirm"
             >Add
             <ion-icon
               :icon="arrowForwardOutline"
@@ -61,17 +61,32 @@ export default defineComponent({
   },
   setup(props, context) {
     const store = useStore();
+
+    var flagCancel = false;
     const cancel = () => {
-      context.emit("cancel");
+      if (!flagCancel) {
+        flagCancel = true;
+        setTimeout(() => {
+          flagCancel = false;
+        }, 100);
+        context.emit("cancel");
+      }
     };
 
+    var flagConfirm = false;
     const confirm = () => {
-      let text = document.getElementById("text-input").textContent;
-      if (text.toString().length > 1) {
-        store.dispatch("addNote", text);
-      }
+      if (!flagConfirm) {
+        flagConfirm = true;
+        setTimeout(() => {
+          flagConfirm = false;
+        }, 100);
+        let text = document.getElementById("text-input").textContent;
+        if (text.toString().length > 1) {
+          store.dispatch("addNote", text);
+        }
 
-      context.emit("cancel");
+        context.emit("cancel");
+      }
     };
     return {
       arrowBackOutline,

@@ -2,12 +2,12 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.theplank.app',
-  appName: 'plank',
+  appName: 'The Plank',
   webDir: 'dist',
   bundledWebRuntime: false,
   plugins: {
     SplashScreen: {
-        launchShowDuration: 100,
+        launchShowDuration: 1000,
         launchAutoHide: true,
         splashImmersive: true,
     }
