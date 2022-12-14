@@ -1,6 +1,6 @@
 <template>
   <ion-card>
-    <button id="remove-btn" @touchstart="onDelete" @click="onDelete">✖️</button>
+    <button id="remove-btn" @click="onDelete">✖️</button>
     <ion-card-content>
       {{ content }}
     </ion-card-content>
@@ -21,15 +21,8 @@ export default defineComponent({
   },
   setup(props) {
     const store = useStore();
-    var flag = false;
     const onDelete = () => {
-      if (!flag) {
-        flag = true;
-        setTimeout(() => {
-          flag = false;
-        }, 100);
-        store.dispatch("deleteNote", props.id);
-      }
+      store.dispatch("deleteNote", props.id);
     };
 
     return {
