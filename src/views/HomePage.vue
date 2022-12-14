@@ -2,7 +2,8 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>⛵️The Plank</ion-title>
+        <ion-title slot="start">⛵️The Plank</ion-title>
+        <NoteDownloadButton slot="end" class="ion-margin-end"/>
       </ion-toolbar>
     </ion-header>
 
@@ -32,6 +33,7 @@ import {
 import { defineComponent, computed, ref } from "vue";
 import NoteDisplay from "../components/NoteDisplay.vue";
 import NoteFormModal from "../components/NoteFormModal.vue";
+import NoteDownloadButton from "../components/NoteDownloadButton.vue";
 import { useStore } from "vuex";
 
 export default defineComponent({
@@ -44,6 +46,7 @@ export default defineComponent({
     IonToolbar,
     NoteDisplay,
     NoteFormModal,
+    NoteDownloadButton,
   },
   setup() {
     const store = useStore();
