@@ -2,6 +2,12 @@ var CryptoJS = require("crypto-js");
 const secret = process.env.VUE_APP_CRYPTOJS_SECRET;
 const storeName = "notes";
 
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, "0");
+var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+var yyyy = today.getFullYear();
+today = mm + "/" + dd + "/" + yyyy;
+
 const state = {
   notes: [],
 };
@@ -44,10 +50,11 @@ const actions = {
 
 const mutations = {
   newNote: (state, noteText) => {
-    let noteId = state.notes.length - 1;
+    let noteId = state.notes.length;
     let note = {
       id: noteId,
       text: noteText,
+      when: today,
     };
     state.notes.unshift(note);
   },
