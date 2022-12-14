@@ -1,5 +1,6 @@
 # ThePlank
-throw your thoughts over board and keep a clear mind with this simple notes app
+<h4>"throw your thoughts over board and keep a clear mind with this simple notes app"</h4>
+
 
 REQUIREMENTS:
 - Node.js (https://nodejs.org/en/)
